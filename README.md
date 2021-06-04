@@ -63,13 +63,13 @@ The net damage dealt will be Monster A's ATK less Monster B's DEF, multiplied by
 
 So if A attacks, you take (30-20)x(1- (20/30)) = 10x(1/3) = 3 (ROUND DOWN)
 
-ONE MORE THING: Every attack has a one in seven chance of a critical hit, whereby the net damage is tripled. So if the above was a critical hit, then the damage is 9, not 6.
+ONE MORE THING: Every attack has a one in seven chance of a critical hit, whereby the net damage is tripled. So if the above was a critical hit, then the damage is 9, not 6. **CONSOLE.LOG THIS OCCURRENCE!**
 
 ## Tech Stack
 
 - nodejs, duh...
 - Download [Docker](https://www.docker.com/products/docker-desktop) and then [Kitematic](https://github.com/docker/kitematic/releases) to get a mysql container running on your local machine. (Kitematic is technically a deprecated technology, and docker itself will say you can just use docker desktop. If you can get that working, then more power to you!). On kitematic, you can just search for mysql, but [here](https://hub.docker.com/_/mysql) are the docs to give you more info.
-- Use the npm [sequelize](https://sequelize.org/) npm library to configure a database with the required schema. If you want a brief crash course on SQL as a language, check [this](https://www.mysqltutorial.org/) out. You really only need to understand creating databases / tables / fields, and basic search and update querying. Don't go into views and stored procedures and the like!
+- Use the [sequelize](https://sequelize.org/) npm library to configure a database with the required schema. If you want a brief crash course on SQL as a language, check [this](https://www.mysqltutorial.org/) out. You really only need to understand creating databases / tables / fields, and basic search and update querying. Don't go into views and stored procedures and the like!
 
 ## Outcomes
 
