@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome, coders! By now, I hope you've had lots of fun working with Nodejs and seen all the wonderful opportunities and things you can create with words and logic! This assessment will review all the concepts and applications you have encountered so far.
+Welcome, coders! By now, I hope you've had lots of fun working with Nodejs and seen all the wonderful opportunities and things you can create with words and logic! This assessment will review all the concepts and applications you have encountered so far, but **MOST OF ALL** it will test your thinking, logic and ability to explore new opportunities and solve tough problems, because that's what makes a good coder, full stop.
 
 ## Challenge
 
@@ -49,6 +49,22 @@ fight(); //This method takes in 2 monsters' IDs and lets each one attack the oth
 
 **NB**: When creating a monster, you only need to pass through a name. The method itself should set hp, atk and def values by fetching a different random number between from 10 to 20 for each one (hint: Math.random)
 
+### Monster Attacking Algorithm
+
+An example:
+
+MONSTER A: 30 ATK
+
+MONSTER B: 20 DEF, 20 HP
+
+We could just have the attacking monster's ATK minus the defending monster's DEF go straight to the HP of the defending monster. For example: A Attacks B: 30 - 20 = 10 damage, and 20 - 10 is 10. And that will be the remaining HP of the defending monster.
+But let's make it more complicated just because!
+The net damage dealt will be Monster A's ATK less Monster B's DEF, multiplied by 1 minus the ratio of monster B's DEF to monster A's ATK:
+
+So if A attacks, you take (30-20)x(1- (20/30)) = 10x(1/3) = 3 (ROUND DOWN)
+
+ONE MORE THING: Every attack has a one in seven chance of a critical hit, whereby the net damage is tripled. So if the above was a critical hit, then the damage is 9, not 6.
+
 ## Tech Stack
 
 - nodejs, duh...
@@ -81,3 +97,7 @@ const runTest = async () => {
 
 runTest();
 ```
+
+- We will also be assessing code QUALITY - are things structured neatly, referenced smoothly, readable, etc
+
+## Good luck, fellow pokemo... I mean MONSTER RUMBLE ARENA coders!
