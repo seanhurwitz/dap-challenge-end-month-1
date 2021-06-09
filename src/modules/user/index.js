@@ -1,1 +1,4 @@
-module.exports = { createUser: require("./create-user") };
+module.exports = {
+  createUser: require("./createUser"),
+  updateUser: require("./updateUser"),
+};

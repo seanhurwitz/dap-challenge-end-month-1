@@ -5,4 +5,6 @@ module.exports = {
   getDbConnection: require("./getDbConnection"),
   getDbConnectionWithDb: require("./getDbConnectionWithDb"),
   getFullDbSchema: require("./getFullDbSchema"),
+  getRow: require("./getRow"),
+  updateRow: require("./updateRow"),
 };
