@@ -6,4 +6,5 @@ const sequelize = new Sequelize("", "root", "dap123", {
   dialect: "mysql",
   database: "battle_royal_db",
 });
+
 module.exports = sequelize;
