@@ -12,18 +12,18 @@ const createMonster = async (testInputMonster) => {
   //Create a monster
   // **NB**: When creating a monster, you only need to pass through a name. The method itself should set hp,
   // atk and def values by fetching a different random number between from 10 to 20 for each one (hint: Math.random)
-
+  /* PLEASE clean up comments when done */
   const randomNumbers = () => {
     return Math.floor(Math.random() * 10) + 10;
   };
-  hp = await randomNumbers();
-  atk = await randomNumbers();
+  hp = await randomNumbers(); //const
+  atk = await randomNumbers(); //randomNumbers is not an async function
   def = await randomNumbers();
 
   const monster = Monster.build({
     name: testInputMonster.name,
     userId: User.id,
-  });
+  }); //I think this should also be async
 
   await monster
     .save()
@@ -42,6 +42,8 @@ const createMonster = async (testInputMonster) => {
           monster.def
       )
     );
+  //This will work asynchronously since you used await,
+  //but no need for .then, since you can retrieve the monster from the db.
 };
 
 const updateMonster = () => {
@@ -51,7 +53,7 @@ const updateMonster = () => {
       if (monster) {
         monster.update({
           name: newMonsterName.name,
-        });
+        }); //needs to be async
       }
     });
   } catch (e) {
@@ -59,20 +61,23 @@ const updateMonster = () => {
   }
 };
 
-const growMonster = async () => {
+const growMonster = async (/*should be id here*/) => {
   //This method will take in a monster's ID and randomly increase its stats from 1 to 5 points each
   const newMonsterPowers = () => {
     return Math.floor(Math.random() * 4) + 1;
   };
-  const newHp = (await newMonsterPowers()) + hp;
+  const newHp = (await newMonsterPowers()) + hp; //where you getting this hp variable from?
+  //Ideally fetch the monster from the db using the id passed thru in the function.
   const newAtk = (await newMonsterPowers()) + atk;
   const newDef = (await newMonsterPowers()) + def;
 
   try {
+    //async
     Monster.findByPk({ where: { id: testInputMonsterId.id } }).then(() => {
       if (monster) {
         monster.update({
-          hp: newMonsterPowers.newHp,
+          hp: newMonsterPowers.newHp, //this should just be newHp. see how newMonsterPowers is yellow? that means it's a function
+          //and you can't call a key on a function!
           atk: newMonsterPowers.newAtk,
           def: newMonsterPowers.newDef,
         });
@@ -103,13 +108,15 @@ const fight = async () => {
   // ONE MORE THING: Every attack has a one in seven chance of a critical hit, whereby the net damage is tripled.
   // So if the above was a critical hit, then the damage is 9, not 6.
 
+  /* PLEASE REMOVE COMMENTS! */
+
   const monsterOne = Monster.findByPk({
     where: { id: testInputMonsterIdOne.id },
   });
   const monsterTwo = Monster.findByPk({
     where: { id: testInputMonsterIdTwo.id },
   });
-  const criticalhit = Math.floor(Math.random() * 7 + 1);
+  const criticalhit = Math.floor(Math.random() * 7 + 1); //nice
   let damage;
 
   const monst1Attacks = () => {
@@ -122,6 +129,7 @@ const fight = async () => {
       return monsterTwo;
     } else {
       monsterTwo.hp = monsterTwo.hp - roundOne;
+      //try use the damage variable consistently, if you're going to declare it
       return monsterTwo;
     }
   };
@@ -142,6 +150,7 @@ const fight = async () => {
 
   await monst1Attacks();
   await monst2Attacks();
+  //I'd rather not have function within functions here. Let it all be a single flow.
 };
 
 module.exports = { createMonster, updateMonster, growMonster, fight };

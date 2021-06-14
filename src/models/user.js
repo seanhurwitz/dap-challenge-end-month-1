@@ -6,6 +6,8 @@ const sequelize = new Sequelize(connection, {
   operatorsAliases: 0,
   logging: 0,
 }); // 0 = false
+// You should have a util function that gives you a sequelize connection without having
+// multiple instances of the same sequelize.
 
 let User = sequelize.define(
   "user",

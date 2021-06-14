@@ -8,9 +8,10 @@ const sequelize = new Sequelize(path, {
   operatorsAliases: false,
   logging: false,
 });
+//redundant code
 
 const createUser = async (testInput) => {
-  //Adds a user
+  //Adds a user /* I don't need such a comment here. The method name tells me this */
   const user = User.build({ name: testInput.name });
   await user.save().then(() => {
     console.log(
@@ -24,12 +25,12 @@ const createUser = async (testInput) => {
 };
 
 const updateUser = async (testInput) => {
-  //Ability to update the user's name
+  //Ability to update the user's name /* I don't need such a comment here. The method name tells me this */
   try {
     const user = await User.findOne({ where: { name: testInput.name } });
     user.update({
       name: newUserName.name,
-    });
+    }); //this should be asynchronous
     console.log(user);
   } catch (e) {
     console.log(e);
