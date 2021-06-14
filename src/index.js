@@ -2,7 +2,7 @@ require("./db/mysql");
 
 //require("./functions/monster");
 const { createUser, updateUser } = require("./functions/user");
-//const User = require("./tables/user");
+const User = require("./tables/user");
 const Monster = require("./tables/user");
 
 let user; //I'm definine the user variable in here so I can use it in all the methods without having to create a user every time.
