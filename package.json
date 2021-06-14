@@ -1,0 +1,30 @@
+{
+  "name": "dap-challenge-end-month-1",
+  "version": "1.0.0",
+  "description": "## Introduction",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shirel-Trackmatic/dap-challenge-end-month-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shirel-Trackmatic/dap-challenge-end-month-1/issues"
+  },
+  "homepage": "https://github.com/Shirel-Trackmatic/dap-challenge-end-month-1#readme",
+  "dependencies": {
+    "joi": "^17.4.0",
+    "joi-sequelize": "^0.2.8",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.2"
+  }
+}
