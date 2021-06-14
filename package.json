@@ -1,0 +1,26 @@
+{
+  "name": "dap-challenge-end-month-1",
+  "version": "1.0.0",
+  "description": "## Introduction",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yossizim/dap-challenge-end-month-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yossizim/dap-challenge-end-month-1/issues"
+  },
+  "homepage": "https://github.com/yossizim/dap-challenge-end-month-1#readme",
+  "dependencies": {
+    "joi": "^17.4.0",
+    "joi-sequelize": "^0.2.8",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.6.2"
+  }
+}
