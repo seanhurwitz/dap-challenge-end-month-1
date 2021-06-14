@@ -1,4 +1,4 @@
-require("./db/mysql");
+require("./db/mysql"); //you need to assign this to a variable
 
 //require("./functions/monster");
 const { createUser, updateUser } = require("./functions/user");
@@ -25,3 +25,13 @@ const testCreateUser = async () => {
 };
 
 runTest();*/
+
+/* 
+
+OVERALL COMMENTS
+
+- Decent first attempt. Unfortunately no working product.
+- focus heavily on the async/await concepts and flow
+- Go through the model solution and try replicate to your capacity.
+
+*/

@@ -2,6 +2,11 @@ const sequelize = require("../db/mysql");
 const { createUser, updateUser } = require("../functions/user");
 const { Sequelize, DataType, DataTypes, Model } = require("sequelize");
 
+/*
+Notice the faded out imports above. It means they are not being used.
+Please remove all unused imports.
+*/
+
 const User = sequelize.define(
   "User",
   {

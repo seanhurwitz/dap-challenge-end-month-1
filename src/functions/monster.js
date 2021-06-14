@@ -19,7 +19,7 @@ const updateMonster = async () => {
   try {
     const monsterupdate = await Monster.findOrCreate({ testInput });
     monster.name = monsterupdate;
-    await monster.save();
+    await monster.save(); //much better use of async await here
     if (!monster) {
       console.log("must be a valid monster");
     }
@@ -28,6 +28,7 @@ const updateMonster = async () => {
   }
 };
 growMonster(); //This method will take in a monster's ID and randomly increase its stats from 1 to 5 points each
+//not sure why you're invoking the function here.
 const growMonster = async () => {
   const id = monster.id;
 };

@@ -4,6 +4,7 @@ const sequelize = require("sequelize");
 //createuser();
 const createUser = async () => {
   const user = User.build({ name: testInput.name });
+  //This testInput variable has never been declared and will throw you an error on runtime.
   await user.save();
   console.log(user.toJSON());
   try {
@@ -17,6 +18,7 @@ const createUser = async () => {
 const updateUser = async () => {
   try {
     const userUpdate = await User.create({ name: testInput.name });
+    // You shouldn't be creating the user again
     user.name = userUpdate;
     user.save();
     if (!user) {
@@ -26,6 +28,11 @@ const updateUser = async () => {
     console.log(e);
   }
 };
+
+/*
+- Please not so many comments, especially when the method names are self-explanatory
+- use async/await on the sequelize methods like user.save or else the app won't flow properly
+*/
 
 module.exports = { createUser, updateUser };
 // const updateUser = async () => {
