@@ -31,6 +31,7 @@ const testUpdateUser = async () => {
 const testCreateMonster = async () => {
   const testInputMonster = {
     name: "Sully",
+    userId: user.id,
   };
   monster = await createMonster(testInputMonster);
 };
@@ -68,7 +69,7 @@ const runTest = async () => {
   console.log(user);
   console.log(monster);
   await getDbConnectionWithDb();
-  //await testCreateUser();
+  await testCreateUser();
   //await testUpdateUser();
   await testCreateMonster();
   // await testUpdateMonster();

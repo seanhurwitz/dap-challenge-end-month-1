@@ -1,20 +1,22 @@
 const { getFullDbSchema } = require("../../../utils/mysql/getFullDbSchema");
 
-const createMonster = async (testInputMonster) => {
+const createMonster = async (input) => {
   const dbConnection = await getFullDbSchema();
 
-  const randomNumbers = async () => {
+  const randomNumbers = () => {
     return Math.floor(Math.random() * 10) + 10;
   };
-  hp = await randomNumbers();
-  atk = await randomNumbers();
-  def = await randomNumbers();
+  const hp = randomNumbers();
+  const atk = randomNumbers();
+  const def = randomNumbers();
 
   const monster = await dbConnection.models.Monster.build({
-    name: testInputMonster.name,
-    userId: dbConnection.models.User.id,
+    ...input,
+    hp,
+    atk,
+    def,
   });
-
+  console.log(`input`, input);
   await monster.save();
   console.log(
     "New monster " +
