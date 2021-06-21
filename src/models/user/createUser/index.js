@@ -12,6 +12,7 @@ const createUser = async (testInput) => {
       " with the id of: " +
       user.id
   );
+  return user.dataValues;
 };
 
 module.exports = { createUser };

@@ -39,10 +39,10 @@ const getFullDbSchema = async (bootstrap = false) => {
       defaultValue: DataTypes.UUIDV4,
       required: true,
       foreignKey: true,
-      // references: {
-      //   model: "User",
-      //   key: "id",
-      // },
+      references: {
+        model: "User",
+        key: "id",
+      },
     },
     name: {
       type: DataTypes.STRING(64),
