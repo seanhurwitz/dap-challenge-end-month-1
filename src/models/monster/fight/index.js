@@ -1,12 +1,14 @@
-const { Monster } = require("../../../utils/mysql/getFullDbSchema");
+const { getFullDbSchema } = require("../../../utils/mysql/getFullDbSchema");
 
-const fight = async () => {
-  const monsterOne = Monster.findByPk({
+const fight = async (testInputMonsterIdOne, testInputMonsterIdTwo) => {
+  const dbConn = await getFullDbSchema();
+  const monsterOne = dbConn.models.Monster.findOne({
     where: { id: testInputMonsterIdOne.id },
   });
-  const monsterTwo = Monster.findByPk({
+  const monsterTwo = dbConn.models.Monster.findOne({
     where: { id: testInputMonsterIdTwo.id },
   });
+
   const criticalhit = Math.floor(Math.random() * 7 + 1);
   let damage;
 

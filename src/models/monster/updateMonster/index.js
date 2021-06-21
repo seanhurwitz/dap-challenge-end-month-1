@@ -1,13 +1,17 @@
-const { Monster } = require("../../../utils/mysql/getFullDbSchema");
+const { getFullDbSchema } = require("../../../utils/mysql/getFullDbSchema");
 
-const updateMonster = async () => {
+const updateMonster = async (testUpdatedMonster) => {
   try {
-    await Monster.findOne({ where: { name: testInputMonster.name } });
+    const dbConn = await getFullDbSchema();
+    const monster = await dbConn.models.Monster.findOne({
+      where: { id: testUpdatedMonster.id },
+    });
     if (monster) {
       monster.update({
-        name: newMonsterName.name,
+        name: testUpdatedMonster.name,
       });
     }
+    console.log("The monster's name has been updated to " + monster.name + ".");
   } catch (e) {
     console.log(e);
   }

@@ -1,10 +1,15 @@
-const updateUser = async (testInput) => {
+const { getFullDbSchema } = require("../../../utils/mysql/getFullDbSchema");
+
+const updateUser = async (testNewUser) => {
   try {
-    const user = await User.findOne({ where: { name: testInput.name } });
-    await user.updateRow({
-      name: newUserName.name,
+    const dbConn = await getFullDbSchema();
+    const user = await dbConn.models.User.findOne({
+      where: { id: testNewUser.id },
     });
-    console.log(user);
+    await user.update({
+      name: testNewUser.name,
+    });
+    console.log("The user's name has been updated to " + user.name);
   } catch (e) {
     console.log(e);
   }
