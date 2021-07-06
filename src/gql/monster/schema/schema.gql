@@ -1,0 +1,8 @@
+type Monster {
+  id: ID!
+  user: User!
+  name: String!
+  hp: Int!
+  atk: Int!
+  def: Int!
+}
